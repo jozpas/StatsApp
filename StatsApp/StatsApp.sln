@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsApp", "StatsApp\StatsApp.csproj", "{0681BF90-2489-4BD5-B555-872DA9288DA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatsApp", "StatsApp\StatsApp.csproj", "{0681BF90-2489-4BD5-B555-872DA9288DA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsApp.Tests", "StatsApp.Tests\StatsApp.Tests.csproj", "{60F2A220-5CD5-4982-B534-DFA19A408EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0681BF90-2489-4BD5-B555-872DA9288DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0681BF90-2489-4BD5-B555-872DA9288DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0681BF90-2489-4BD5-B555-872DA9288DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60F2A220-5CD5-4982-B534-DFA19A408EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F2A220-5CD5-4982-B534-DFA19A408EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60F2A220-5CD5-4982-B534-DFA19A408EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F2A220-5CD5-4982-B534-DFA19A408EE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

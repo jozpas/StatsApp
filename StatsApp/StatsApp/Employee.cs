@@ -1,7 +1,7 @@
 ﻿
 namespace StatsApp
 {
-    class Employee
+    public class Employee
     {
 
         private List<int> score = new List<int>();
@@ -34,7 +34,7 @@ namespace StatsApp
 
         public void theBestWorker()
         {
-            
+
         }
 
     }
