@@ -35,12 +35,13 @@ namespace StatsApp.Tests
         {
 
             var employee = new Employee("Kuba", "Bekas", 22);
-            employee.AddScore(10);
+            employee.AddScore(2);
+            employee.AddScore(2);
             employee.AddScore(5);
 
            var statistics = employee.GetStatistics();
 
-            Assert.AreEqual(7.5, statistics.Average);
+            Assert.AreEqual(Math.Round(3.33,2), Math.Round(statistics.Average, 2));
         }
     }
 }

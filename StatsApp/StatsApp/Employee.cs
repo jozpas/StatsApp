@@ -35,7 +35,38 @@ namespace StatsApp
 
         public void AddScore(float grade)
         {
-            this.grades.Add(grade);
+            int valueInInt = (int)grade;
+            //int valueInInt2 = (int)Math.Ceiling(grade);
+            //int valueInInt3 = Math.Floor();
+
+            float f = valueInInt;
+
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("Błędna ocena.");
+                Console.WriteLine("Możliwa ocena w zekresie od 0 do 100");
+            }
+        }
+        public void AddScore(double grade)
+        {
+            var gradeInFloat = (float)grade;
+            this.grades.Add(gradeInFloat);
+        }
+
+        public void AddScore(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddScore(result);
+            }
+            else
+            {
+                Console.WriteLine("To nie jest cyfra");
+            }
         }
 
         public Statistics GetStatistics()
@@ -53,11 +84,7 @@ namespace StatsApp
             }
 
             statistics.Average = statistics.Average / this.grades.Count;
-         //   statistics.Average /= this.grades.Count;
-
-           
-
-
+            //   statistics.Average /= this.grades.Count;
 
             return statistics;
         }
