@@ -6,19 +6,44 @@ using System.Linq.Expressions;
 Console.WriteLine("Witamy w programie do oceny pracowników");
 Console.WriteLine("=======================================");
 Console.WriteLine();
-Console.WriteLine("Podaj ocenę pracownika: ");
+//Console.WriteLine("Podaj ocenę pracownika: ");
 
-var employee = new Employee("Józef", "Paszkiewicz", 34);
+//var employee = new Employee("Józef", "Paszkiewicz", 34);
+var employee = new Employee("Józef");
+
+//try
+//{
+//    Employee emp = null;
+//    var name = emp.LastName;
+//}
+//catch (Exception exc)
+//{
+//    Console.WriteLine(exc.Message);
+//}
+//finally
+//{
+//    Console.WriteLine("Finally her");
+//}
+
 
 while (true)
 {
-    Console.WriteLine("Podaj kolejną ocenę pracownika: ");
+    Console.WriteLine("Podaj kolejną ocenę pracownika lub wpisz 'q' aby wyjść z programu...");
     var input = Console.ReadLine();
     if (input == "q")
     {
         break;
     }
-    employee.AddScore(input);
+    
+    try
+    {
+        employee.AddScore(input);
+    }
+    catch (Exception exc)
+    {
+        Console.WriteLine($"Wystąpił wyjątek. {exc.Message}");
+    }
+   
 }
 
 var statistics = employee.GetStatistics();

@@ -4,34 +4,39 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace StatsApp
 {
-    public class Employee
+    public class Employee : Person
     {
 
         private List<float> grades = new List<float>();
 
-        public static string Company = "HAP";
-        public Employee(string name, string lastname, int age)
-        {
-            this.Name = name;
-            this.LastName = lastname;
-            this.Age = age;
+        //public static string Company = "HAP";
 
-        }
-
-        public Employee(string name, string lastname)
-        {
-            this.Name = name;
-            this.LastName = lastname;
-        }
 
         public Employee(string name)
+         : this(name, "nazwisko nieznane")
         {
-            this.Name = name;
+
+        }
+        public Employee(string name, string lastname)
+            : base(name, lastname)
+        {
+
+        }
+        public Employee(string name, string lastname, int age)
+            : base(name, lastname, age)
+        {
         }
 
-        public string Name { get; private set; }
-        public string LastName { get; private set; }
-        public int Age { get; private set; }
+
+
+        //public Employee(string name)
+        //{
+        //    this.Name = name;
+        //}
+
+        // public string Name { get; private set; }
+        //public string LastName { get; private set; }
+        //public int Age { get; private set; }
 
 
         public void AddScore(float grade)
@@ -47,8 +52,9 @@ namespace StatsApp
             }
             else
             {
-                Console.WriteLine("Błędna ocena.");
-                Console.WriteLine("Możliwa ocena w zekresie od 0 do 100");
+                throw new Exception("Błędna ocena. Możliwa ocena w zekresie od 0 do 100.");
+                // Console.WriteLine("Błędna ocena.");
+                // Console.WriteLine("Możliwa ocena w zekresie od 0 do 100");
             }
         }
         public void AddScore(double grade)
@@ -63,43 +69,42 @@ namespace StatsApp
             {
                 this.AddScore(result);
             }
+            else if (char.TryParse(grade, out char resultAsChar))
+            {
+                switch (resultAsChar)
+                {
+                    case 'A':
+                    case 'a':
+                        this.grades.Add(100);
+                        break;
+                    case 'B':
+                    case 'b':
+                        this.grades.Add(80);
+                        break;
+                    case 'C':
+                    case 'c':
+                        this.grades.Add(60);
+                        break;
+                    case 'D':
+                    case 'd':
+                        this.grades.Add(40);
+                        break;
+                    case 'E':
+                    case 'e':
+                        this.grades.Add(20);
+                        break;
+                    default:
+                        throw new Exception("Błędna litera");
+                }
+            }
             else
             {
-                Console.WriteLine("To nie jest cyfra");
+                throw new Exception("To nie jest cyfra");
+                //  Console.WriteLine("To nie jest cyfra");
             }
         }
 
-        public void AddScore(char grade)
-        {
-            switch (grade)
-            {
-                case 'A':
-                case 'a':
-                    this.grades.Add(100);
-                    break;
-                case 'B':
-                case 'b':
-                    this.grades.Add(80);
-                    break;
-                case 'C':
-                case 'c':
-                    this.grades.Add(60);
-                    break;
-                case 'D':
-                case 'd':
-                    this.grades.Add(40);
-                    break;
-                case 'E':
-                case 'e':
-                    this.grades.Add(20);
-                    break;
-                default:
-                    Console.WriteLine("Błędna litera");
-                    //  this.grades.Add(0);
-                    break;
 
-            }
-        }
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
@@ -138,8 +143,6 @@ namespace StatsApp
                     statistics.AverageLetter = 'E';
                     break;
             }
-                
-                
 
             return statistics;
         }
